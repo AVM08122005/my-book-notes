@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a book</title>
+    <link rel="stylesheet" href="/assets/style/main.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+
+    <section class="form-section">
+      <h2>Add a new book</h2>
+
+      <form action="/add" method="POST">
+        <label for="isbn">ISBN:</label><br />
+        <input
+          type="text"
+          id="isbn"
+          name="isbn"
+          required
+          autocomplete="off"
+        /><br /><br />
+
+        <label for="notes">Notes:</label><br />
+        <textarea id="notes" name="notes" rows="5" cols="40"></textarea
+        ><br /><br />
+
+        <button type="submit">Save Book</button>
+      </form>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>

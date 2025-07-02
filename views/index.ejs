@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book notes | Achintya Mahajan</title>
+    <link rel="stylesheet" href="/assets/style/main.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar.ejs") %>
+
+    <section class="Hero-section">
+      <div class="Hero-cointainer">
+        <div class="Hero-title"><h1>Books I have read</h1></div>
+        <div class="Hero-subheading">
+          <h3>Collection of books I have read.</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section for books -->
+    <section class="book-section">
+      <% if (books.length === 0) { %>
+      <p>No books added yet.</p>
+      <% } else { %>
+      <div class="book-container">
+        <% books.forEach(book => { %>
+        <div class="book-card">
+          <img src="<%= book.cover_url %>" alt="Book Cover" />
+
+          <h3 class="book-title"><%= book.title %></h3>
+          <a href="/books/<%= book.id %>">
+            <button class="view-btn">View Details</button>
+          </a>
+        </div>
+        <% }) %>
+      </div>
+
+      <% } %>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>
